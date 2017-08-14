@@ -10,7 +10,9 @@
 
 
 
-    <div id="loadedImages"></div>
+    <div id="loadedImages">
+    <div id="something"></div>
+    </div>
     <button id="load-more">load more</button>
     
     <script>
@@ -65,6 +67,18 @@
     });
 
     // run our feed!
+    feed.run();
+    */
+        
+    /*
+    //Example Filter (get username + tagged):
+        var feed = new Instafeed({
+        get: 'user',
+        userId: 'USER_ID',
+        filter: function(image) {
+            return image.tags.indexOf('TAG_NAME') >= 0;
+        }
+    });
     feed.run();
     */
 
