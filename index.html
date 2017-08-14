@@ -13,26 +13,24 @@
     <div id="instagram"><button id="load-more"></button></div>
     
     <script>
+    var loadButton = document.getElementById('load-more');
     var feed = new Instafeed({
 		get: 'user',
 		userId: 5879735301,
 		accessToken: '5879735301.1677ed0.f8748542bb4741d7a64e5e7666397c65',
         template:   '<div><a href="{{link}}"><div><h1>for James</h1>{{caption}}{{comments}}{{likes}}{{location}}</div><div><img class="set" src="{{image}}" /></a></div></div>',
 		target: 'instagram',
-		resolution: 'low_resolution'
-    });
-    
-    var loadButton = document.getElementById('load-more');
-    var feed = new Instafeed({
-        // every time we load more, run this function
+		resolution: 'low_resolution' ,
+                // every time we load more, run this function
         after: function() {
             // disable button if no more results to load
             if (!this.hasNext()) {
                 loadButton.setAttribute('disabled', 'disabled');
             }
         },
+        
     });
-
+    
     // bind the load more button
     loadButton.addEventListener('click', function() {
         feed.next();
