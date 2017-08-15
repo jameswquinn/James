@@ -10,8 +10,8 @@
     </head>
 <body>
 
-   <article><div id="loadedImages"></div></article>
-    <footer><button id="load-more">load more</button></footer>
+<div id="loadedImages"></div>
+
 
 
     <script>
@@ -21,7 +21,7 @@
         sortBy: 'random',
         userId: 5879735301,
         accessToken: '5879735301.1677ed0.f8748542bb4741d7a64e5e7666397c65',
-        template: '<a href="{{link}}"><img src="{{image}}" alt="" ></a>',
+        template: '<a href="{{link}}"><img src="{{image}}" width="{{width}}" height="{{height}}" alt="" ></a>',
         target: 'loadedImages',
         resolution: 'low_resolution',
         // every time we load more, run this function
