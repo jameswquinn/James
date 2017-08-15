@@ -7,26 +7,17 @@
         <link rel="stylesheet" href="assets/css/macy.css">
         <script type="text/javascript" src="assets/script/instagram.js"></script>
         <script type="text/javascript" src="assets/script/macy.js"></script>
-        <style>
-            figure {
-                border-style: solid;
-                border-width: thin;
-                border-color: lightgray;
-                padding: .5em;
-                display:inline-block;
-            }
-        </style>
     </head>
 <body>
 
-   <article><div id="loadedImages" class="" ></div></article>
+   <article><div id="loadedImages"></div></article>
     <footer><button id="load-more">load more</button></footer>
 
 
     <script>
-    var loadButton = document.getElementById('load-more');
     var feed = new Instafeed({
 		get: 'user',
+    limit: 12,
 		userId: 5879735301,
 		accessToken: '5879735301.1677ed0.f8748542bb4741d7a64e5e7666397c65',
         template: '<div class="demo"><img src="{{image}}" alt="" class="demo-image"></div>' ,
@@ -34,54 +25,48 @@
 		resolution: 'low_resolution' ,
                 // every time we load more, run this function
         after: function() {
-            // disable button if no more results to load
-            if (!this.hasNext()) {
-                loadButton.setAttribute('disabled', 'disabled');
-            }
+          var masonry = new Macy({
+           container: '#loadedImages',
+           trueOrder: false,
+           waitForImages: true,
+           debug: true,
+           margin: {
+               x: 10,
+               y: 10
+           },
+           columns: 6,
+           breakAt: {
+             1200: {
+               columns: 5,
+               margin: {
+                   x: 23,
+                   y: 4
+               }
+             },
+             940: {
+               margin: {
+                   y: 23
+               }
+             },
+             520: {
+               columns: 3,
+               margin: 3,
+             },
+             400: {
+               columns: 2
+             }
+           }
+         });
+
         },
 
     });
 
-    // bind the load more button
-    loadButton.addEventListener('click', function() {
-        feed.next();
-    });
     feed.run();
 
 
 
-    var masonry = new Macy({
-     container: '.macy-container',
-     trueOrder: false,
-     waitForImages: true,
-     debug: true,
-     margin: {
-         x: 10,
-         y: 10
-     },
-     columns: 6,
-     breakAt: {
-       1200: {
-         columns: 5,
-         margin: {
-             x: 23,
-             y: 4
-         }
-       },
-       940: {
-         margin: {
-             y: 23
-         }
-       },
-       520: {
-         columns: 3,
-         margin: 3,
-       },
-       400: {
-         columns: 2
-       }
-     }
-   });
+
     /*
     <script type="text/javascript">
     var userFeed = new Instafeed({
@@ -124,6 +109,40 @@
     feed.run();
     */
 
+
+/*
+    $(document).ready(function(){
+
+
+      var feed = new Instafeed({
+        get: 'tagged',
+        tagName: 'sushiroll',
+        sortBy: 'most-liked',
+        limit: 12,
+        resolution: 'low_resolution',
+        clientId: 'b13d92eda3a244e69daa44304a832de4',
+        template: '<div class="item"><img src="{{image}}" /><div class="like"><i class="fa fa-heart"></i> {{likes}}</div></div>',
+        after: function() {
+
+          var $container = $('#instafeed');
+
+          $container.packery({
+            itemSelector: '.item',
+            gutter: 0
+          });
+
+           $container.on( 'click', '.item', function( event ) {
+             var $target = $( event.target ).parent();
+              $target.toggleClass('big');
+              $container.packery();
+           });
+        }
+
+      });
+      feed.run();
+
+    });
+    */
     </script>
 
 </body>
