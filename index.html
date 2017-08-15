@@ -16,62 +16,62 @@
 
 
 
-    <script>
-        var button = document.getElementById("load");
-        var feed = new Instafeed({
-        get: 'user',
-        limit: 12,
-        sortBy: 'random',
-        userId: 5879735301,
-        accessToken: '5879735301.1677ed0.f8748542bb4741d7a64e5e7666397c65',
-        template: '<div class="demo"><a class="instagram-{{orientation}}" href="{{link}}"><img class="demo-image " src="{{image}}" alt="{{caption}}" ></a></div>',
-        target: 'loadedImages',
-        resolution: 'low_resolution',
-        // every time we load more, run this function
-        after: function() {
-            var masonry = new Macy({
-                container: '#loadedImages',
-                trueOrder: false,
-                waitForImages: true,
-                debug: true,
-                margin: {
-                    x: 10,
-                    y: 10
-                },
-                columns: 6,
-                breakAt: {
-                    1200: {
-                        columns: 5,
-                        margin: {
-                            x: 23,
-                            y: 4
-                        }
-                    },
-                    940: {
-                        margin: {
-                            y: 23
-                        }
-                    },
-                    520: {
-                        columns: 3,
-                        margin: 3,
-                    },
-                    400: {
-                        columns: 2
+<script>
+var button = document.getElementById("load");
+var feed = new Instafeed({
+    get: 'user',
+    limit: 12,
+    sortBy: 'random',
+    userId: 5879735301,
+    accessToken: '5879735301.1677ed0.f8748542bb4741d7a64e5e7666397c65',
+    template: '<div class="demo"><a class="instagram-{{orientation}}" href="{{link}}"><img class="demo-image " src="{{image}}" alt="{{caption}}" ></a></div>',
+    target: 'loadedImages',
+    resolution: 'low_resolution',
+    // every time we load more, run this function
+    after: function() {
+        var masonry = new Macy({
+            container: '#loadedImages',
+            trueOrder: false,
+            waitForImages: true,
+            debug: true,
+            margin: {
+                x: 10,
+                y: 10
+            },
+            columns: 6,
+            breakAt: {
+                1200: {
+                    columns: 5,
+                    margin: {
+                        x: 23,
+                        y: 4
                     }
+                },
+                940: {
+                    margin: {
+                        y: 23
+                    }
+                },
+                520: {
+                    columns: 3,
+                    margin: 3,
+                },
+                400: {
+                    columns: 2
                 }
-            });
+            }
+        });
 
-        },
+    },
 
-    });
-
-    feed.run();
-
-    button.addEventListener("click", function() {
-  feed.next();
 });
-    </script>
+
+feed.run();
+
+button.addEventListener("click", function() {
+    feed.next();
+});
+</script>
 
 </body>
 </html>
