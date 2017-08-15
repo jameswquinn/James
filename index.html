@@ -7,14 +7,6 @@
         <link rel="stylesheet" href="assets/css/milligram.min.css">
         <script type="text/javascript" src="assets/script/instagram.js"></script>
         <script type="text/javascript" src="assets/script/macy.js"></script>
-        <style>
-          img {
-            opacity: 06;
-          }
-          img:hover {
-            opacity: 1;
-          }
-        </style>
     </head>
 <body>
 
@@ -29,9 +21,9 @@
         sortBy: 'random',
         userId: 5879735301,
         accessToken: '5879735301.1677ed0.f8748542bb4741d7a64e5e7666397c65',
-        template: '<a href="{{link}}"><img src="{{image}}" alt="{{caption}}" ></a>',
+        template: '<a class="instagram-{{orientation}}" href="{{link}}"><img src="{{image}}" alt="{{caption}}" ></a>',
         target: 'loadedImages',
-        resolution: 'low_resolution',
+        resolution: 'standard_resolution',
         // every time we load more, run this function
         after: function() {
             var masonry = new Macy({
