@@ -20,7 +20,7 @@
 <body>
 
    <article><div id="loadedImages" class="macy-container" ></div></article>
-    <footer><button id="load-more">load more</button></footer>
+
 
 
     <script>
@@ -34,54 +34,55 @@
 		resolution: 'low_resolution' ,
                 // every time we load more, run this function
         after: function() {
+          var masonry = new Macy({
+           container: '.macy-container',
+           trueOrder: false,
+           waitForImages: true,
+           debug: true,
+           margin: {
+               x: 10,
+               y: 10
+           },
+           columns: 6,
+           breakAt: {
+             1200: {
+               columns: 5,
+               margin: {
+                   x: 23,
+                   y: 4
+               }
+             },
+             940: {
+               margin: {
+                   y: 23
+               }
+             },
+             520: {
+               columns: 3,
+               margin: 3,
+             },
+             400: {
+               columns: 2
+             }
+           }
+         });
             // disable button if no more results to load
-            if (!this.hasNext()) {
-                loadButton.setAttribute('disabled', 'disabled');
+            //if (!this.hasNext()) {
+              //  loadButton.setAttribute('disabled', 'disabled');
             }
         },
 
     });
 
     // bind the load more button
-    loadButton.addEventListener('click', function() {
-        feed.next();
+    //loadButton.addEventListener('click', function() {
+      //  feed.next();
     });
     feed.run();
 
 
 
-    var masonry = new Macy({
-     container: '.macy-container',
-     trueOrder: false,
-     waitForImages: true,
-     debug: true,
-     margin: {
-         x: 10,
-         y: 10
-     },
-     columns: 6,
-     breakAt: {
-       1200: {
-         columns: 5,
-         margin: {
-             x: 23,
-             y: 4
-         }
-       },
-       940: {
-         margin: {
-             y: 23
-         }
-       },
-       520: {
-         columns: 3,
-         margin: 3,
-       },
-       400: {
-         columns: 2
-       }
-     }
-   });
+
     /*
     <script type="text/javascript">
     var userFeed = new Instafeed({
