@@ -15,135 +15,55 @@
 
 
     <script>
-    var feed = new Instafeed({
-		get: 'user',
-    limit: 12,
-    sortBy: 'random',
-		userId: 5879735301,
-		accessToken: '5879735301.1677ed0.f8748542bb4741d7a64e5e7666397c65',
-        template: '<a href="{{link}}"><img src="{{image}}" alt="" ></a>' ,
-		target: 'loadedImages',
-		resolution: 'low_resolution' ,
-                // every time we load more, run this function
-        after: function() {
-          var masonry = new Macy({
-           container: '#loadedImages',
-           trueOrder: false,
-           waitForImages: true,
-           debug: true,
-           margin: {
-               x: 10,
-               y: 10
-           },
-           columns: 6,
-           breakAt: {
-             1200: {
-               columns: 5,
-               margin: {
-                   x: 23,
-                   y: 4
-               }
-             },
-             940: {
-               margin: {
-                   y: 23
-               }
-             },
-             520: {
-               columns: 3,
-               margin: 3,
-             },
-             400: {
-               columns: 2
-             }
-           }
-         });
-
-        },
-
-    });
-
-    feed.run();
-
-
-
-
-    /*
-    <script type="text/javascript">
-    var userFeed = new Instafeed({
-        get: 'user',
-        userId: 'YOUR_USER_ID',
-        accessToken: 'YOUR_ACCESS_TOKEN'
-    });
-    userFeed.run();
-    */
-    /*
-    var loadButton = document.getElementById('load-more');
-    var feed = new Instafeed({
-        // every time we load more, run this function
-        after: function() {
-            // disable button if no more results to load
-            if (!this.hasNext()) {
-                loadButton.setAttribute('disabled', 'disabled');
-            }
-        },
-    });
-
-    // bind the load more button
-    loadButton.addEventListener('click', function() {
-        feed.next();
-    });
-
-    // run our feed!
-    feed.run();
-    */
-
-    /*
-    //Example Filter (get username + tagged):
         var feed = new Instafeed({
         get: 'user',
-        userId: 'USER_ID',
-        filter: function(image) {
-            return image.tags.indexOf('TAG_NAME') >= 0;
-        }
-    });
-    feed.run();
-    */
-
-
-/*
-    $(document).ready(function(){
-
-
-      var feed = new Instafeed({
-        get: 'tagged',
-        tagName: 'sushiroll',
-        sortBy: 'most-liked',
         limit: 12,
+        sortBy: 'random',
+        userId: 5879735301,
+        accessToken: '5879735301.1677ed0.f8748542bb4741d7a64e5e7666397c65',
+        template: '<a href="{{link}}"><img src="{{image}}" alt="" ></a>',
+        target: 'loadedImages',
         resolution: 'low_resolution',
-        clientId: 'b13d92eda3a244e69daa44304a832de4',
-        template: '<div class="item"><img src="{{image}}" /><div class="like"><i class="fa fa-heart"></i> {{likes}}</div></div>',
+        // every time we load more, run this function
         after: function() {
+            var masonry = new Macy({
+                container: '#loadedImages',
+                trueOrder: false,
+                waitForImages: true,
+                debug: true,
+                margin: {
+                    x: 10,
+                    y: 10
+                },
+                columns: 6,
+                breakAt: {
+                    1200: {
+                        columns: 5,
+                        margin: {
+                            x: 23,
+                            y: 4
+                        }
+                    },
+                    940: {
+                        margin: {
+                            y: 23
+                        }
+                    },
+                    520: {
+                        columns: 3,
+                        margin: 3,
+                    },
+                    400: {
+                        columns: 2
+                    }
+                }
+            });
 
-          var $container = $('#instafeed');
-
-          $container.packery({
-            itemSelector: '.item',
-            gutter: 0
-          });
-
-           $container.on( 'click', '.item', function( event ) {
-             var $target = $( event.target ).parent();
-              $target.toggleClass('big');
-              $container.packery();
-           });
-        }
-
-      });
-      feed.run();
+        },
 
     });
-    */
+
+    feed.run();
     </script>
 
 </body>
