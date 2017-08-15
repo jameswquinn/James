@@ -58,6 +58,11 @@
                     }
                 }
             });
+            var el = document.getElementById('loadedImages');
+if (el.classList)
+  el.classList.add('show');
+else
+  el.className += ' ' + 'show';
 
         },
 
