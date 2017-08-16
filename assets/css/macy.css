@@ -1,8 +1,5 @@
 .demo {
-  margin-bottom: 24px;
-  border-radius: 4px;
-  overflow: hidden;
-  border: 1px solid #eee;
+  display: block;
 }
 
 
