@@ -8,6 +8,17 @@
         <link rel="stylesheet" href="assets/css/macy.css">
         <script type="text/javascript" src="assets/script/instagram.js"></script>
         <script type="text/javascript" src="assets/script/macy.js"></script>
+        <script src="assets/script/lazysizes.min.js" async=""></script>
+        <style>
+.lazyload,
+.lazyloading {
+	opacity: 0;
+}
+.lazyloaded {
+	opacity: 1;
+	transition: opacity 300ms;
+}
+</style>
     </head>
 <body>
 
@@ -24,7 +35,7 @@ var feed = new Instafeed({
     sortBy: 'random',
     userId: 5879735301,
     accessToken: '5879735301.1677ed0.f8748542bb4741d7a64e5e7666397c65',
-    template: '<div class="demo"><a class="instagram-{{orientation}}" href="{{link}}"><img class="demo-image " src="{{image}}" alt="{{caption}}" ></a></div>',
+    template: '<div class="demo"><a class="instagram-{{orientation}}" href="{{link}}"><img class="demo-image lazyload" data-src="{{image}}" alt="{{caption}}" ></a></div>',
     target: 'loadedImages',
     resolution: 'low_resolution',
     // every time we load more, run this function
