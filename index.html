@@ -21,10 +21,8 @@ var button = document.getElementById("load");
 var feed = new Instafeed({
     get: 'user',
     limit: 12,
-    links: true,
     sortBy: 'random',
     userId: 5879735301,
-    clientId:	'5b99717d7b2146a1ab6afa7d1f5b333e',
     accessToken: '5879735301.1677ed0.f8748542bb4741d7a64e5e7666397c65',
     template: '<div class="demo"><a class="instagram-{{orientation}}" href="{{link}}"><img class="demo-image " src="{{image}}" alt="{{caption}}" ></a></div>',
     target: 'loadedImages',
