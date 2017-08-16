@@ -5,7 +5,7 @@
         <title>James Quinn</title>
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
         <link rel="stylesheet" href="assets/css/milligram.min.css">
-        <link rel="stylesheet" href="assets/css/macy.css">
+        <link rel="stylesheet" href="assets/css/macy.css11">
         <script type="text/javascript" src="assets/script/instagram.js"></script>
         <script type="text/javascript" src="assets/script/macy.js"></script>
         <script type="text/javascript" src="assets/script/main.js"></script>
@@ -18,6 +18,9 @@
 .lazyloaded {
 	opacity: 1;
 	transition: opacity 300ms;
+  width: 100%;
+  display: block;
+  height: auto;
 }
 </style>
     </head>
@@ -36,7 +39,7 @@ var feed = new Instafeed({
     sortBy: 'random',
     userId: 5879735301,
     accessToken: '5879735301.1677ed0.f8748542bb4741d7a64e5e7666397c65',
-    template: '<div class="demo"><a class="instagram-{{orientation}}" href="{{link}}"><img class="demo-image lazyload" data-src="{{image}}" alt="{{caption}}" ></a></div>',
+    template: '<div class="demo"><a class="instagram-{{orientation}}" href="{{link}}"><img class="lazyload demo-image" data-src="{{image}}" alt="{{caption}}" ></a></div>',
     target: 'loadedImages',
     resolution: 'low_resolution',
     // every time we load more, run this function
