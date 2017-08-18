@@ -20,6 +20,11 @@
 	transition: opacity 300ms;
 }
 
-rollover:hover a {
-  opacity: 0;
+#loadedImages:hover a {
+    opacity: .8
+}
+
+
+#loadedImages a:hover {
+    opacity: 1
 }
