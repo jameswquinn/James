@@ -20,11 +20,11 @@
 	transition: opacity 300ms;
 }
 
-#loadedImages:hover a {
+#demo:hover a {
     opacity: .8
 }
 
 
-#loadedImages a:hover {
+#demo a:hover {
     opacity: 1
 }
