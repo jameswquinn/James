@@ -19,12 +19,3 @@
 	opacity: 1;
 	transition: opacity 300ms;
 }
-
-#demo:hover a {
-    opacity: .8
-}
-
-
-#demo a:hover {
-    opacity: 1
-}
