@@ -44,6 +44,7 @@ var feed = new Instafeed({
     }
 });
 
+macy_instance.runOnImageLoad(function () { macy_instance.recalculate(true); }, true); 
         // disable button if no more results to load
            if (!this.hasNext()) {
                loadButton.setAttribute('disabled', 'disabled');
