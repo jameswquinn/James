@@ -43,7 +43,7 @@ var feed = new Instafeed({
         400: 1
     }
 });
-        
+
         // disable button if no more results to load
            if (!this.hasNext()) {
                loadButton.setAttribute('disabled', 'disabled');
@@ -58,6 +58,7 @@ loadButton.addEventListener('click', function() {
 
 // run our feed!
 feed.run();
+macyInstance.recalculate(true, true);
 
 
 
